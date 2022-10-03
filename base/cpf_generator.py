@@ -4,8 +4,7 @@ from random import randint
 
 def new_cpf() -> str:
     """ Essa função gera um cpf válidado automáticamente """
-    novo_cpf: str = ''.join([str(randint(0, 9))
-                            for _ in range(9)])  # 9 números aleatórios
+    novo_cpf: str = ''.join([str(randint(0, 9)) for _ in range(9)])  # 9 números aleatórios
     reverso: int = 10  # Contador reverso
     total: int = 0  # O total das multiplicações
 

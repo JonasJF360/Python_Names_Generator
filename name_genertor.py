@@ -1,6 +1,7 @@
 """ importação das bibliotecas nescessárias """
-import imp
+
 from random import randint, choice
+from typing import NoReturn
 from base.f_first_name import base_f_first_name
 from base.f_second_name import base_f_second_name
 from base.last_name import base_last_name
@@ -26,7 +27,7 @@ def male_name() -> str:
     return choice(base_m_first_name)
 
 
-def gender_error(sexo: str) -> None:
+def gender_error(sexo: str) -> NoReturn:
     raise RuntimeError(f"Parametro '{sexo}' inválido: Use 'm' para masculino, 'f' para feminino ou deixe vazio para o sistema escolher sozinho.")
 
 
