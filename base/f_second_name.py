@@ -8,6 +8,7 @@ base_f_second_name: list = [
     'maria',
     'nicóly',
     'paula',
+    'renata',
     'vitória',
     'yasmin',
 ]

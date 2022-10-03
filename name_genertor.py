@@ -1,10 +1,12 @@
 """ importação das bibliotecas nescessárias """
+import imp
 from random import randint, choice
 from base.f_first_name import base_f_first_name
 from base.f_second_name import base_f_second_name
 from base.last_name import base_last_name
 from base.m_first_name import base_m_first_name
 from base.m_second_name import base_m_second_name
+from base.cpf_generator import new_cpf
 
 # Esse é um programa gerador de nomes
 # Nele você poderá gerar nomes masculinos
@@ -85,12 +87,12 @@ def generate_complit_name(sexo: str = 'n') -> list:
 
 if __name__ == '__main__':
     for i in range(10):
-        print(f"{i + 1}:\t", " ".join(generate_complit_name('m')).title())
+        print(f"{i + 1}:\t{new_cpf()}\t", " ".join(generate_complit_name('m')).title())
 
     print()
     for i in range(10):
-        print(f"{i + 1}:\t", " ".join(generate_complit_name('f')).title())
+        print(f"{i + 1}:\t{new_cpf()}\t", " ".join(generate_complit_name('f')).title())
 
     print()
     for i in range(10):
-        print(f"{i + 1}:\t", " ".join(generate_complit_name()).title())
+        print(f"{i + 1}:\t{new_cpf()}\t", " ".join(generate_complit_name()).title())
