@@ -24,17 +24,23 @@ def male_name() -> str:
     return choice(base_m_first_name)
 
 
+def gender_error(sexo: str) -> None:
+    raise RuntimeError(f"Parametro '{sexo}' inválido: Use 'm' para masculino, 'f' para feminino ou deixe vazio para o sistema escolher sozinho.")
+
+
 def generate_name(sexo: str) -> str:
     """ Gera um nome aleatóriamente """
+    if sexo.upper() != 'M' and sexo.upper() != 'F':
+        gender_error(sexo)
     return male_name() if sexo.upper() == 'M' else fame_name()
 
 
 def second_name(sexo: str) -> str:
     """ Gera um nome do meio aleatóriamente """
-    if sexo.upper() == 'M':
-        return choice(base_m_second_name)
-    else:  # if sexo == 'F'
-        return choice(base_f_second_name)
+    if sexo.upper() != 'M' and sexo.upper() != 'F':
+        gender_error(sexo)
+
+    return choice(base_m_second_name) if sexo.upper() == 'M' else choice(base_f_second_name)
 
 
 def last_name() -> str:
@@ -42,12 +48,12 @@ def last_name() -> str:
     return choice(base_last_name)
 
 
-def generate_complit_name(sexo: str = 'b') -> list:
+def generate_complit_name(sexo: str = 'n') -> list:
     """ Retorna uma lista com o nome completo aleatóriamente """
     number = randint(0, 100)
     have_second_name: bool = bool(number > 50 and number % 2)
 
-    if sexo == 'b':
+    if sexo == 'n':
         sexo = 'm' if bool(randint(0, 1)) else 'f'
 
     name: str = generate_name(sexo)
@@ -84,7 +90,7 @@ if __name__ == '__main__':
     print()
     for i in range(10):
         print(f"{i + 1}:\t", " ".join(generate_complit_name('f')).title())
-    
+
     print()
     for i in range(10):
         print(f"{i + 1}:\t", " ".join(generate_complit_name()).title())
