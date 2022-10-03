@@ -42,12 +42,14 @@ def last_name() -> str:
     return choice(base_last_name)
 
 
-def generate_complit_name() -> list:
+def generate_complit_name(sexo: str = 'b') -> list:
     """ Retorna uma lista com o nome completo aleatóriamente """
     number = randint(0, 100)
     have_second_name: bool = bool(number > 50 and number % 2)
 
-    sexo: str = 'm' if bool(randint(0, 1)) else 'f'
+    if sexo == 'b':
+        sexo = 'm' if bool(randint(0, 1)) else 'f'
+
     name: str = generate_name(sexo)
     complite_name: list = [name]
 
@@ -76,5 +78,13 @@ def generate_complit_name() -> list:
 
 
 if __name__ == '__main__':
-    for i in range(200):
+    for i in range(10):
+        print(f"{i + 1}:\t", " ".join(generate_complit_name('m')).title())
+
+    print()
+    for i in range(10):
+        print(f"{i + 1}:\t", " ".join(generate_complit_name('f')).title())
+    
+    print()
+    for i in range(10):
         print(f"{i + 1}:\t", " ".join(generate_complit_name()).title())
