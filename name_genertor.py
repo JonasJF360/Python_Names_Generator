@@ -48,24 +48,29 @@ def generate_complit_name() -> list:
     have_second_name: bool = bool(number > 50 and number % 2)
 
     sexo: str = 'm' if bool(randint(0, 1)) else 'f'
+    name: str = generate_name(sexo)
+    complite_name: list = [name]
 
-    if not have_second_name:
-        max_size: int = randint(2, 5)
-        size_lest_name: int = randint(1, max_size)
-        complite_name: list = [generate_name(sexo)]
+    if have_second_name:
         while True:
-            temp_last_name = last_name()
-            if temp_last_name in complite_name:
+            temp_second_name: str = second_name(sexo)
+            if temp_second_name == name:
                 continue
-            else:
-                complite_name.append(temp_last_name)
-                size_lest_name -= 1
+            complite_name.append(temp_second_name)
+            break
 
-            if size_lest_name == 0:
-                break
-    else:
-        complite_name: list = [generate_name(
-            sexo), second_name(sexo), last_name()]
+    size_lest_name: int = randint(1, randint(2, 5))
+
+    while True:
+        temp_last_name = last_name()
+        if temp_last_name in complite_name:
+            continue
+
+        complite_name.append(temp_last_name)
+        size_lest_name -= 1
+
+        if size_lest_name == 0:
+            break
 
     return complite_name
 

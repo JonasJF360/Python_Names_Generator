@@ -5,6 +5,7 @@ base_last_name: list = [
     'adade',
     'arteaga',
     'de andrade',
+    'de amoedo',
     'berenicio',
     'barbosa',
     'baratela',
@@ -97,7 +98,7 @@ base_last_name: list = [
     'ramos',
     'rangel',
     'rego',
-    'reis'
+    'reis',
     'rigoni',
     'ribeiro',
     'rodrigues',
