@@ -61,7 +61,7 @@ def generate_complit_name(sexo: str = 'b') -> list:
             complite_name.append(temp_second_name)
             break
 
-    size_lest_name: int = randint(1, randint(2, 5))
+    size_lest_name: int = randint(1, randint(2, randint(3, 5)))
 
     while True:
         temp_last_name = last_name()
