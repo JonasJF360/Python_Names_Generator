@@ -1,7 +1,6 @@
 """ importação das bibliotecas nescessárias """
 
 from random import randint, choice
-from typing import NoReturn
 from base.f_first_name import base_f_first_name
 from base.f_second_name import base_f_second_name
 from base.last_name import base_last_name
@@ -27,8 +26,9 @@ def male_name() -> str:
     return choice(base_m_first_name)
 
 
-def gender_error(sexo: str) -> NoReturn:
-    raise RuntimeError(f"Parametro '{sexo}' inválido: Use 'm' para masculino, 'f' para feminino ou deixe vazio para o sistema escolher sozinho.")
+def gender_error(sexo: str) -> None:
+    raise RuntimeError(
+        f"Parametro '{sexo}' inválido: Use 'm' para masculino, 'f' para feminino ou deixe vazio para o sistema escolher sozinho.")
 
 
 def generate_name(sexo: str) -> str:
@@ -87,13 +87,17 @@ def generate_complit_name(sexo: str = 'n') -> list:
 
 
 if __name__ == '__main__':
+    print('Nomes Masculinos:')
     for i in range(10):
-        print(f"{i + 1}:\t{new_cpf()}\t", " ".join(generate_complit_name('m')).title())
+        print(f"{i + 1}:\t{new_cpf()}\t",
+              " ".join(generate_complit_name('m')).title())
 
-    print()
+    print('\nNomes Femininos:')
     for i in range(10):
-        print(f"{i + 1}:\t{new_cpf()}\t", " ".join(generate_complit_name('f')).title())
+        print(f"{i + 1}:\t{new_cpf()}\t",
+              " ".join(generate_complit_name('f')).title())
 
-    print()
+    print('\nNomes Masculinos e Femininos:')
     for i in range(10):
-        print(f"{i + 1}:\t{new_cpf()}\t", " ".join(generate_complit_name()).title())
+        print(f"{i + 1}:\t{new_cpf()}\t",
+              " ".join(generate_complit_name()).title())

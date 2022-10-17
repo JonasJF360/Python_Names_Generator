@@ -9,6 +9,7 @@ base_m_first_name: list = [
     'armando',
     'benício',
     'bernardo',
+    'berenicio',
     'carlos',
     'celio',
     'chico',
@@ -37,6 +38,10 @@ base_m_first_name: list = [
     'gladson',
     'gleismar',
     'gleison',
+    'herodes',
+    'hermom',
+    'hugo',
+    'heros',
     'henrique',
     'hermínio',
     'ícaro',
@@ -55,14 +60,22 @@ base_m_first_name: list = [
     'joão',
     'jucelino',
     'juvencio',
+    'kaab',
+    'kalél',
     'kelson',
     'kelvin',
+    'kim',
+    'konrad',
     'klayton',
     'laucir',
+    'leonardo',
+    'leandro',
+    'leomar',
     'lourenço',
     'lourival',
     'lucas',
     'lucio',
+    'mario',
     'madson',
     'maelson',
     'manoel',
@@ -111,10 +124,19 @@ base_m_first_name: list = [
     'silvio',
     'simão',
     'tavwelker',
+    'tales',
+    'tássio',
+    'tadeu',
+    'teobaldo',
+    'teodoro',
+    'teofilo',
     'tiago',
     'tião',
-    'tonhão',
+    'tonio',
     'uelington',
+    'ubiatã',
+    'ubaldo',
+    'ubaldino',
     'ugo',
     'ulisses',
     'umberto',
@@ -129,20 +151,22 @@ base_m_first_name: list = [
     'willyan',
     'xico',
     'ytamar',
+    'yehudi',
+    'yule',
     'ytamiro',
     'yágo',
+    'zacarías',
+    'zadoque',
+    'zaqueu',
+    'zebilon',
+    'zeferino',
     'zenildo',
+    'zenon',
     'zeno',
     'zélio',
 ]
 
 if __name__ == '__main__':
     # Testar se tem nomes tepetidos
-    tirar_repetidos: set = set(base_m_first_name)
-
-    print('[')
-    for i in sorted(base_m_first_name):
-        print(f"\t'{i}',")
-    print(']')
-    print(len(base_m_first_name))
-    print(len(tirar_repetidos))
+    import verificar_duplicidades as vd
+    print(vd.valores_duplicados(base_m_first_name))

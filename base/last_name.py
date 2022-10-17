@@ -3,9 +3,11 @@ base_last_name: list = [
     'alves',
     'assunção',
     'adade',
-    'arteaga',
+    'andrade',
     'de andrade',
+    'arteaga',
     'de amoedo',
+    'bezerra',
     'berenicio',
     'barbosa',
     'baratela',
@@ -36,6 +38,7 @@ base_last_name: list = [
     'ferreira',
     'fernandes',
     'filho',
+    'fogaça',
     'frança',
     'freitas',
     'garcia',
@@ -85,6 +88,7 @@ base_last_name: list = [
     'oliveira',
     'de oliveira',
     'pascoal',
+    'padrão',
     'prado',
     'pinto',
     'pimenta',
@@ -130,11 +134,5 @@ base_last_name: list = [
 
 if __name__ == '__main__':
     # Testar se tem nomes tepetidos
-    tirar_repetidos: set = set(base_last_name)
-
-    print('[')
-    for i in tirar_repetidos:
-        print(f"\t'{i}',")
-    print(']')
-    print(len(base_last_name))
-    print(len(tirar_repetidos))
+    import verificar_duplicidades as vd
+    print(vd.valores_duplicados(base_last_name))
