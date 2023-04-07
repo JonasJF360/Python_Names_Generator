@@ -7,6 +7,7 @@ from base.last_name import base_last_name
 from base.m_first_name import base_m_first_name
 from base.m_second_name import base_m_second_name
 from base.cpf_generator import new_cpf
+from gender_error import gender_error
 
 # Esse é um programa gerador de nomes
 # Nele você poderá gerar nomes masculinos
@@ -26,22 +27,15 @@ def male_name() -> str:
     return choice(base_m_first_name)
 
 
-def gender_error(sexo: str) -> None:
-    raise RuntimeError(
-        f"Parametro '{sexo}' inválido: Use 'm' para masculino, 'f' para feminino ou deixe vazio para o sistema escolher sozinho.")
-
-
 def generate_name(sexo: str) -> str:
     """ Gera um nome aleatóriamente """
-    if sexo.upper() != 'M' and sexo.upper() != 'F':
-        gender_error(sexo)
+    gender_error(sexo)
     return male_name() if sexo.upper() == 'M' else fame_name()
 
 
 def second_name(sexo: str) -> str:
     """ Gera um nome do meio aleatóriamente """
-    if sexo.upper() != 'M' and sexo.upper() != 'F':
-        gender_error(sexo)
+    gender_error(sexo)
 
     return choice(base_m_second_name) if sexo.upper() == 'M' else choice(base_f_second_name)
 
@@ -53,11 +47,10 @@ def last_name() -> str:
 
 def generate_complit_name(sexo: str = 'n') -> list:
     """ Retorna uma lista com o nome completo aleatóriamente """
+    sexo = choice(['m', 'f']) if sexo == 'n' else sexo
+
     number = randint(0, 100)
     have_second_name: bool = bool(number > 50 and number % 2)
-
-    if sexo == 'n':
-        sexo = 'm' if bool(randint(0, 1)) else 'f'
 
     name: str = generate_name(sexo)
     complite_name: list = [name]
