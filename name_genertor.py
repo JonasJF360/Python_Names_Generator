@@ -36,7 +36,6 @@ def generate_name(sexo: str) -> str:
 def second_name(sexo: str) -> str:
     """ Gera um nome do meio aleatóriamente """
     gender_error(sexo)
-
     return choice(base_m_second_name) if sexo.upper() == 'M' else choice(base_f_second_name)
 
 
